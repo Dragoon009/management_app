@@ -5,8 +5,7 @@ class SkillsController < ApplicationController
 
   def edit
     @skill = Skill.find(params[:id])
-    @user = User.all
-    @project = Project.all
+
   end
 
   def create
@@ -43,6 +42,6 @@ class SkillsController < ApplicationController
 
   private
     def skill_params
-      params.require(:skill).permit(:skill)
+      params.require(:skill).permit(:skill,:user_ids => [])
     end
 end

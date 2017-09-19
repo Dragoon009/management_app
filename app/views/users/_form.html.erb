@@ -5,7 +5,7 @@
     <p> Name:</br> <%= f.text_field :name%> </p>
     <p> Email:</br> <%= f.text_field :email%> </p>
     <div class="field">
-      <%= collection_check_boxes(:user, :skill_ids, @skills, :id, :skill) %>                    
+      <%= collection_check_boxes(:user, :skill_ids, @skills, :id, :skill) %>
     </div>
     <p> Profile Picture:</br> <%= f.file_field :image%></p>
     <p> Password:</br> <%= f.password_field :password%></p>

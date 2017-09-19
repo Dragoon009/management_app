@@ -4,7 +4,7 @@ class UsersController < ApplicationController
   before_action :admin_user,     only: [:index, :destroy]
 
   def new
-  	@user = User.new
+    @user = User.new
     @skills = Skill.all
   end
 
@@ -55,10 +55,10 @@ class UsersController < ApplicationController
   end
 
   def admin_user
+    unless current_user.admin?
       flash[:danger] = "You are not authorized for this action"
       redirect_to(root_url)
-    unless
-       current_user.admin?
+    end
   end
 
   def logged_in_user
@@ -67,6 +67,7 @@ class UsersController < ApplicationController
       #redirect_to login_url
     end
   end
+  
   def correct_user
     @user = User.find(params[:id])
     redirect_to(root_url) unless @user == current_user

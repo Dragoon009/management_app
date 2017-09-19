@@ -1,0 +1,27 @@
+<% provide(:title, @user.name) %>
+<div class="row">
+  <aside class="col-md-4">
+    <section class="user_info">
+      <h1>
+      <p> <%= image_tag @user.image%> </p>
+        Welcome
+        <%=@user.name%>!!
+      </h1>
+      <p>
+        <strong>Skill Name:</strong>
+        <%= @user.skills.map {|c| c.skill}.join(', ') %>
+        <%=@sk%>
+      </p>
+
+      <h2>
+      <li><%= link_to "Edit", edit_user_path %></li>
+        <%= link_to "Logout", session_path(session),method: :delete,data: { confirm: 'Are you sure?' } %>
+        <%= link_to "Users", users_path if @user.admin? %>
+        <%= link_to "Projects", projects_path if @user.admin? %>
+        <%= link_to "Skills", skills_path if @user.admin? %>
+      </li>
+      </h2>
+      
+    </section>
+  </aside>
+</div>

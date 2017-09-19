@@ -1,0 +1,17 @@
+<% @page_title = "Skill" %>
+<div class="skill">
+  <h1>Skill input</h1>
+  <%= form_for(@skill) do |f| %>
+    <p> Skill:</br> <%= f.text_field :skill%> </p>
+    <%= link_to "Create new skill", {controller: 'skills', action: 'new'} %>
+    <%= f.submit "Submit" %>
+   <% end %>
+
+   <% if @skill.errors.any? %>
+    <ul class="Skill_Errors">
+    <% for message_error in @skill.errors.full_messages %>
+      <li>* <%= message_error %></li>
+    <% end %>
+    </ul>
+  <% end %>
+</div>

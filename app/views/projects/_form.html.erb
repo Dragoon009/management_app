@@ -1,0 +1,24 @@
+<% @page_title = "Project" %>
+<div class="project">
+  <h1>Project input</h1>
+  <%= form_for(@project) do |f| %>
+    <p> Project:</br> <%= f.text_field :name%> </p>
+    <div class="field">
+      <%= collection_check_boxes(:project, :skill_ids , @skills, :id, :skill) %>
+    </div>
+    <p> Start Date:</br> <%= f.text_field :start_date%> </p>
+    <p> End Date:</br> <%= f.text_field :completion_date%> </p>
+    <%= f.submit "Submit" %>
+   <% end %>
+
+
+
+
+   <% if @project.errors.any? %>
+    <ul class="Project_Errors">
+    <% for message_error in @project.errors.full_messages %>
+      <li>* <%= message_error %></li>
+    <% end %>
+    </ul>
+  <% end %>
+</div>

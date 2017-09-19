@@ -1,0 +1,22 @@
+<% @page_title = "Project list" %>
+ <div class="Project">
+  <table>
+  <tr>
+    <th>Name</th>
+    <th>Skill</th>
+    <th>Start Date</th>
+    <th>Completion Date</th>
+    <th colspan="2"></th>
+  </tr>
+       <tr>
+      <td><%= @project.name %></td>
+      <td><%= @project.skills.map {|c| c.skill}.join(', ') %></td>
+      <td><%= @project.start_date %></td>
+      <td><%= @project.completion_date %></td>
+    </tr>
+
+</table>
+</div>
+
+<%= link_to 'Assign User', new_assigned_project_path( :project_id => @project.id) %>
+<%= link_to 'Back', projects_path %>

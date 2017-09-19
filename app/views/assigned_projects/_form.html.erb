@@ -1,0 +1,23 @@
+
+
+<%= form_for(@assignedproject) do |f| %>
+  <% if @assignedproject.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@assignedproject.errors.count, "error") %> prohibited this assignedproject from being saved:</h2>
+      <ul>
+      <% @assignedproject.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <%= f.select :project_id , Project.all.collect{ |p| [ p.name, p.id ] if @current_project.id == p.id }%> 
+  <%= f.select :user_id, User.all.collect { |p| [ p.name, p.id ] if @current_project.skills.index{ |x| !p.skills.include?(x)}.nil? } %>
+  <%= f.submit %>
+
+<% end %>
+
+
+ 
+  
+

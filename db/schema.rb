@@ -10,15 +10,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170919065700) do
+ActiveRecord::Schema.define(version: 20170919124939) do
 
   create_table "assigned_projects", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "users_id"
-    t.integer "projects_id"
-    t.index ["projects_id"], name: "index_assigned_projects_on_projects_id"
-    t.index ["users_id"], name: "index_assigned_projects_on_users_id"
+    t.integer "user_id"
+    t.integer "project_id"
+    t.index ["project_id"], name: "index_assigned_projects_on_project_id"
+    t.index ["user_id"], name: "index_assigned_projects_on_user_id"
   end
 
   create_table "projects", force: :cascade do |t|

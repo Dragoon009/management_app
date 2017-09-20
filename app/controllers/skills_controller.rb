@@ -1,4 +1,5 @@
 class SkillsController < ApplicationController
+  before_action :admin_user, only: [:new, :create, :edit, :update, :index, :destroy]
   def new
   	@skill = Skill.new
   end
@@ -14,7 +15,6 @@ class SkillsController < ApplicationController
     else
       render 'new'
     end
-
   end
 
   def index

@@ -1,4 +1,5 @@
 class ProjectsController < ApplicationController
+  before_action :admin_user,     only: [:new, :create, :edit, :update, :index, :destroy]
   def index
     @projects = Project.all
   end

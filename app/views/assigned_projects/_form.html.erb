@@ -1,9 +1,9 @@
-<%= form_for(@assignedproject) do |f| %>
-  <% if @assignedproject.errors.any? %>
+<%= form_for(@assigned_project) do |f| %>
+  <% if @assigned_project.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(@assignedproject.errors.count, "error") %> prohibited this assignedproject from being saved:</h2>
+      <h2><%= pluralize(@assigned_project.errors.count, "error") %> prohibited this project from being assigned:</h2>
       <ul>
-      <% @assignedproject.errors.full_messages.each do |msg| %>
+      <% @assigned_project.errors.full_messages.each do |msg| %>
         <li><%= msg %></li>
       <% end %>
       </ul>
@@ -12,6 +12,7 @@
 
   <%= f.select :project_id , Project.all.collect{ |p| [ p.name, p.id ] if @current_project.id == p.id }%>
   <%= f.select :user_id, User.all.collect { |p| [ p.name, p.id ] if @current_project.skills.index{ |x| !p.skills.include?(x)}.nil? } %>
+  <%= hidden_field_tag :project_id, @current_project.id %>
   <%= f.submit %>
 
 <% end %>

@@ -1,14 +1,11 @@
 <p id="notice"><%= notice %></p>
-
 <p>
   <b>Project:</b>
-  <%= @assignedproject.project.name %>
+  <%= @assigned_project.project.name %>
 </p>
-
 <p>
   <b>User:</b>
-  <%= @assignedproject.user.name %>
+  <%= @assigned_project.user.name %>
 </p>
-
-<%= link_to 'Edit', edit_assignedproject_path(@assignedproject) %> |
-<%= link_to 'Back', assignedprojects_path %>
+<%= link_to 'Edit', edit_assigned_project_path(@assigned_project) %> |
+<%= link_to 'Back', assigned_projects_path %>

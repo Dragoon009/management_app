@@ -1,5 +1,4 @@
 <h1>Listing assignedprojects</h1>
-
 <table>
   <tr>
     <th>Project</th>
@@ -9,17 +8,15 @@
     <th></th>
   </tr>
 
-<% @assignedprojects.each do |assignedproject| %>
+<% @assigned_projects.each do |assignedproject| %>
   <tr>
     <td><%= assignedproject.project.name %></td>
     <td><%= assignedproject.user.name %></td>
-    <td><%= link_to 'Show', assignedproject %></td>
-    <td><%= link_to 'Edit', edit_assignedproject_path(assignedproject) %></td>
+    <td><%= link_to "Edit",edit_assigned_project_path(assignedproject) %></td>
     <td><%= link_to 'Destroy', assignedproject, method: :delete, data: { confirm: 'Are you sure?' } %></td>
   </tr>
 <% end %>
 </table>
-
 <br />
-
-<%= link_to 'New assignedproject', new_assignedproject_path %>
+<%= link_to 'Assign user to project', projects_path %>
+<%= link_to "Back", current_user %>

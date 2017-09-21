@@ -4,7 +4,6 @@ class UsersController < ApplicationController
   before_action :admin_user,     only: [:index, :destroy]
 
   def new
-    debugger
     @user = User.new
     @skills = Skill.all
   end
@@ -16,7 +15,6 @@ class UsersController < ApplicationController
     	redirect_to @user
     else
       flash[:error] =  @user.errors.full_messages.join(', ')
-      debugger
       redirect_to new_user_path
     end
   end

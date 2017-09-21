@@ -12,7 +12,7 @@ class User < ApplicationRecord
   validates_confirmation_of :password
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/
 	validates :email, uniqueness: true, format: { with: VALID_EMAIL_REGEX }
-	validates_attachment :image, presence: true, content_type: { content_type: ["image/jpeg", "image/gif", "image/png"] }
+	#validates_attachment :image, presence: true, content_type: { content_type: ["image/jpeg", "image/gif", "image/png"] }
 
 	before_save :encrypt_password
 	after_save :clear_password

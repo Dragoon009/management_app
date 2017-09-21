@@ -12,7 +12,7 @@
         <%= @user.skills.map {|c| c.skill}.join(', ') %>
       </p>
       <strong>Projects Name:</strong>
-      <%= @array.each do |id| %>
+      <% @array.each do |id| %>
         <%= Project.find(id).name %>
       <% end %>
     </p>
@@ -23,7 +23,7 @@
         <%= link_to "Users", users_path if @user.admin? %>
         <%= link_to "Projects", projects_path if @user.admin? %>
         <%= link_to "Skills", skills_path if @user.admin? %>
-        <%= link_to "Assigned Projects", assigned_projects_path if @user.admin? %>
+        <%= link_to "Assigned Projects", project_users_path if @user.admin? %>
       </li>
       </h2>
 

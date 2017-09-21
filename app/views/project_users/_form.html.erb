@@ -1,9 +1,9 @@
-<%= form_for(@assigned_project) do |f| %>
-  <% if @assigned_project.errors.any? %>
+<%= form_for(@assign_user) do |f| %>
+  <% if @assign_user.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(@assigned_project.errors.count, "error") %> prohibited this project from being assigned:</h2>
+      <h2><%= pluralize(@assign_user.errors.count, "error") %> prohibited this project from being assigned:</h2>
       <ul>
-      <% @assigned_project.errors.full_messages.each do |msg| %>
+      <% @assign_user.errors.full_messages.each do |msg| %>
         <li><%= msg %></li>
       <% end %>
       </ul>

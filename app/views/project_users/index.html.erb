@@ -1,0 +1,22 @@
+<h1>Listing assignedusers</h1>
+<table>
+  <tr>
+    <th>Project</th>
+    <th>User</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @assign_users.each do |assigneduser| %>
+  <tr>
+    <td><%= assigneduser.project.name %></td>
+    <td><%= assigneduser.user.name %></td>
+    <td><%= link_to "Edit",edit_project_user_path(assigneduser) %></td>
+    <td><%= link_to 'Destroy', assigneduser, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+<br />
+<%= link_to 'Assign user to project', projects_path %>
+<%= link_to "Back", current_user %>

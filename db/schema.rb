@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170919124939) do
+ActiveRecord::Schema.define(version: 20170921073242) do
 
   create_table "assigned_projects", force: :cascade do |t|
     t.datetime "created_at", null: false
@@ -19,6 +19,15 @@ ActiveRecord::Schema.define(version: 20170919124939) do
     t.integer "project_id"
     t.index ["project_id"], name: "index_assigned_projects_on_project_id"
     t.index ["user_id"], name: "index_assigned_projects_on_user_id"
+  end
+
+  create_table "project_users", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer "user_id"
+    t.integer "project_id"
+    t.index ["project_id"], name: "index_project_users_on_project_id"
+    t.index ["user_id"], name: "index_project_users_on_user_id"
   end
 
   create_table "projects", force: :cascade do |t|
@@ -34,12 +43,6 @@ ActiveRecord::Schema.define(version: 20170919124939) do
     t.integer "project_id"
     t.integer "skill_id"
     t.index ["skill_id", "project_id"], name: "index_projects_skills_on_skill_id_and_project_id"
-  end
-
-  create_table "projects_users", id: false, force: :cascade do |t|
-    t.integer "project_id"
-    t.integer "user_id"
-    t.index ["user_id", "project_id"], name: "index_projects_users_on_user_id_and_project_id"
   end
 
   create_table "skills", force: :cascade do |t|

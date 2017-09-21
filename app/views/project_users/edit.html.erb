@@ -1,0 +1,25 @@
+<h1>Editing assigned_project</h1>
+<%= form_for(@assign_user) do |f| %>
+  <% if @assign_user.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@assign_user.errors.count, "error") %> prohibited this project from being assigned:</h2>
+      <ul>
+      <% @assign_user.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <%= f.select :project_id , Project.all.collect{ |p| [ p.name, p.id ] if @current_project.id == p.id }%>
+  <%= f.select :user_id, User.all.collect { |p| [ p.name, p.id ] if @current_project.skills.index{ |x| !p.skills.include?(x)}.nil? } %>
+
+  <%= f.submit %>
+
+<% end %>
+
+<%= link_to 'Show', @assign_user %>
+
+
+
+<%= link_to 'Back', project_users_path %>

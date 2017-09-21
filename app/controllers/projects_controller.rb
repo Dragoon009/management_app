@@ -35,6 +35,7 @@ class ProjectsController < ApplicationController
 
   def show
   	@project = Project.find(params[:id])
+    @array = @project.project_users.map(&:user_id)
   end
 
   def destroy

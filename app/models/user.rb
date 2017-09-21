@@ -1,8 +1,8 @@
 class User < ApplicationRecord
 	attr_accessor :password, :password_confirmation
 	has_and_belongs_to_many :skills
-	has_many :assigned_projects
-  has_many :projects, through: :assigned_projects
+	has_many :project_users
+  has_many :projects, through: :project_users
   has_attached_file :image, styles: { :medium => "640x" }
 
 

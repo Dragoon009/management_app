@@ -1,5 +1,5 @@
 class AssignedProjectsController < ApplicationController
-	before_action :admin_user,     only: [:new, :create, :index, :destroy]
+	before_action :admin_user,     only: [:new, :create,:edit, :index, :destroy, :show]
 	before_action :current_project, only: [:new, :create]
 
 	def index

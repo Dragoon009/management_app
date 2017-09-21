@@ -9,7 +9,6 @@ class UsersController < ApplicationController
   end
 
   def create
-
     @user = User.new(user_params)
     if @user.save
       log_in @user
@@ -42,7 +41,7 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
-    @array = @user.assigned_projects.pluck(:project_id)
+    @array = @user.project_users.map(&:project_id)
   end
 
   def destroy

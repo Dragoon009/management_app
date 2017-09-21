@@ -1,5 +1,5 @@
 class SkillsController < ApplicationController
-  before_action :admin_user, only: [:new, :create, :edit, :update, :index, :destroy]
+  before_action :admin_user,     only: [:new, :create,:edit,:update, :index, :destroy, :show]
   def new
   	@skill = Skill.new
   end

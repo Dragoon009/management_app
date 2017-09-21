@@ -22,7 +22,7 @@ class ApplicationController < ActionController::Base
 	end
 
   def admin_user
-    unless current_user.admin?
+    unless !current_user.nil? && current_user.admin?
       flash[:danger] = "You are not authorized for this action"
       redirect_to(root_url)
     end

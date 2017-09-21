@@ -10,14 +10,12 @@ class SessionsController < ApplicationController
   	else
    	  flash.now[:notice] = "Invalid Username or Password"
     	flash.now[:color]= "invalid"
-   	  render "new"	
+   	  redirect_to new_session_path
   	end
-  end	
+  end
 
   def destroy
     log_out
-    render 'new'
+    redirect_to new_session_path
   end
-
 end
-

@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   resources :skills
   resources :projects
   resources :users
-  resources :assigned_projects
+  resources :project_users
 
   root 'welcome#index'
 

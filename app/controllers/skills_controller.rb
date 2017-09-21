@@ -12,8 +12,10 @@ class SkillsController < ApplicationController
   def create
     @skill = Skill.new(skill_params)
     if @skill.save
+      redirect_to new_skill_path
     else
-      render 'new'
+      flash[:error] =  @skill.errors.full_messages.join(', ')
+      redirect_to new_skill_path
     end
   end
 

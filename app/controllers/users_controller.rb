@@ -4,7 +4,9 @@ class UsersController < ApplicationController
   before_action :admin_user,     only: [:index, :destroy]
 
   def new
+    puts "before user initialize"
     @user = User.new
+    puts "after user initialize"
     @skills = Skill.all
   end
 
@@ -15,6 +17,7 @@ class UsersController < ApplicationController
     	redirect_to @user
     else
       flash[:error] =  @user.errors.full_messages.join(', ')
+      puts "redirect on new form"
       redirect_to new_user_path
     end
   end

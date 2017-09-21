@@ -4,6 +4,7 @@ class UsersController < ApplicationController
   before_action :admin_user,     only: [:index, :destroy]
 
   def new
+    debugger
     @user = User.new
     @skills = Skill.all
   end
@@ -15,6 +16,7 @@ class UsersController < ApplicationController
     	redirect_to @user
     else
       flash[:error] =  @user.errors.full_messages.join(', ')
+      debugger
       redirect_to new_user_path
     end
   end
@@ -52,7 +54,7 @@ class UsersController < ApplicationController
 
   private
   def user_params
-    params.require(:user).permit(:role, :name,:email,:image, :password, :password_confirmation, :skill_ids => [])
+    params.require(:user).permit(:role, :name,:email,image: [:image_file_name, :image_file_size, :image_content_type, :image_updated_at], :password, :password_confirmation, :skill_ids => [])
   end
 
 end

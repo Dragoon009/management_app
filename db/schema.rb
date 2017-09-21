@@ -12,15 +12,6 @@
 
 ActiveRecord::Schema.define(version: 20170921073242) do
 
-  create_table "assigned_projects", force: :cascade do |t|
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.integer "user_id"
-    t.integer "project_id"
-    t.index ["project_id"], name: "index_assigned_projects_on_project_id"
-    t.index ["user_id"], name: "index_assigned_projects_on_user_id"
-  end
-
   create_table "project_users", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

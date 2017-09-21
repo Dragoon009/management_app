@@ -15,7 +15,7 @@
       <td><%= @project.start_date %></td>
       <td><%= @project.completion_date %></td>
       <td><% @array.each do |id| %>
-            <%= User.find(id).name %>,
+            <%= User.find(id).name %>  
           <% end %></td>
     </tr>
 

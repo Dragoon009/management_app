@@ -38,7 +38,7 @@ class SkillsController < ApplicationController
 
   def destroy
    Skill.find(params[:id]).destroy
-   flash[:success] = "User deleted"
+   flash[:success] = "Skill deleted"
    redirect_to skills_url
   end
 

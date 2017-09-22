@@ -40,7 +40,7 @@ class ProjectUsersController < ApplicationController
 
   def destroy
     ProjectUser.find(params[:id]).destroy
-    flash[:success] = "User deleted"
+    flash[:success] = "Project unassigned "
     redirect_to assign_users_path
   end
 

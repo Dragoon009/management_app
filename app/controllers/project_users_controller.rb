@@ -41,7 +41,7 @@ class ProjectUsersController < ApplicationController
   def destroy
     ProjectUser.find(params[:id]).destroy
     flash[:success] = "Project unassigned"
-    redirect_to assign_users_url
+    redirect_to project_users_path
   end
 
   private

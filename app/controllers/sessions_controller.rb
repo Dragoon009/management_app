@@ -8,8 +8,8 @@ class SessionsController < ApplicationController
     	log_in @user
   	  redirect_to @user
   	else
-   	  flash.now[:notice] = "Invalid Username or Password"
-    	flash.now[:color]= "invalid"
+   	  flash[:notice] = "Invalid Username or Password"
+    	flash[:color]= "invalid"
    	  redirect_to new_session_path
   	end
   end

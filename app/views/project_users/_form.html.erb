@@ -13,6 +13,6 @@
   <%= f.select :project_id , Project.all.collect{ |p| [ p.name, p.id ] if @current_project.id == p.id }.compact %>
   <%= f.select :user_id, User.all.collect { |p| [ p.name, p.id ] if @current_project.skills.index{ |x| !p.skills.include?(x)}.nil?}.compact %>
   <%= hidden_field_tag :project_id, @current_project.id %>
-  <%= f.submit %>
+  <%= f.submit "Assign project" %>
 
 <% end %>
